@@ -33,7 +33,7 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
     
-    net = hybrid_model("resnet", True, True)
+    net = hybrid_model(model_name="resnet", feature_extract=True, use_pretrained=True)
     net.load_state_dict(torch.load(args.checkpoint_path))
     if eval(args.cuda):
         net = net.cuda()
